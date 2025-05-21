@@ -1,0 +1,14 @@
+{
+    "welcome": "选择您的语言",
+    "admin_login": "输入管理员密码",
+    "backup_limit": "设置传输限制（1-100）",
+    "cloning": "克隆已启用",
+    "error": "发生错误",
+    "transfer_complete": "传输完成",
+    "set_interval": "选择间隔",
+    "confirm_clone": "确认克隆",
+    "invalid_limit": "无效限制",
+    "admin_menu": "管理员面板",
+    "logout": "成功登出",
+    "no_backups": "没有配置备份"
+}
