@@ -1,0 +1,5 @@
+pyrogram==2.0.84
+python-dotenv==1.0.0
+flask==2.3.3
+gunicorn==20.1.0
+pyotp==2.7.0
