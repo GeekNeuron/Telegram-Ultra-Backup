@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Backup Dashboard</title>
+</head>
+<body>
+    <h1>Active Backups</h1>
+    <table>
+        <tr>
+            <th>Source</th>
+            <th>Target</th>
+            <th>Last Run</th>
+        </tr>
+        {% for backup in backups %}
+            <tr>
+                <td>{{ backup.source }}</td>
+                <td>{{ backup.target }}</td>
+                <td>{{ backup.last_run }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
