@@ -1,0 +1,14 @@
+{
+    "welcome": "Selecione seu idioma",
+    "admin_login": "Digite a senha do administrador",
+    "backup_limit": "Defina o limite de transferência (1-100)",
+    "cloning": "Clonagem ativada",
+    "error": "Ocorreu um erro",
+    "transfer_complete": "Transferência concluída",
+    "set_interval": "Escolha o intervalo de transferência",
+    "confirm_clone": "Confirmar clonagem",
+    "invalid_limit": "Limite inválido",
+    "admin_menu": "Painel de administração",
+    "logout": "Logout concluído",
+    "no_backups": "Nenhum backup configurado"
+}
