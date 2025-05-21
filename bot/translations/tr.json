@@ -1,0 +1,14 @@
+{
+    "welcome": "Dilinizi seçin",
+    "admin_login": "Yönetici şifresini girin",
+    "backup_limit": "Aktarım limitini ayarla (1-100)",
+    "cloning": "Klonlama etkinleştirildi",
+    "error": "Bir hata oluştu",
+    "transfer_complete": "Aktarım tamamlandı",
+    "set_interval": "Aktarım aralığını seçin",
+    "confirm_clone": "Klonlama onayla",
+    "invalid_limit": "Geçersiz limit",
+    "admin_menu": "Yönetici Paneli",
+    "logout": "Çıkış yapıldı",
+    "no_backups": "Yapılandırılmış yedek yok"
+}
