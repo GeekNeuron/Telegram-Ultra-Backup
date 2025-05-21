@@ -1,0 +1,14 @@
+{
+    "welcome": "Select your language",
+    "admin_login": "Enter admin password",
+    "backup_limit": "Set transfer limit (1-100)",
+    "cloning": "Cloning enabled",
+    "error": "Error occurred",
+    "transfer_complete": "Transfer completed",
+    "set_interval": "Choose transfer interval",
+    "confirm_clone": "Confirm cloning",
+    "invalid_limit": "Invalid limit specified",
+    "admin_menu": "Admin Dashboard",
+    "logout": "Logout successful",
+    "no_backups": "No backups configured"
+}
