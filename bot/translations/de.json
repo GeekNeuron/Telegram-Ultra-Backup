@@ -1,0 +1,14 @@
+{
+    "welcome": "Wählen Sie Ihre Sprache",
+    "admin_login": "Administrator-Passwort eingeben",
+    "backup_limit": "Übertragungsgrenze einstellen (1-100)",
+    "cloning": "Cloning aktiviert",
+    "error": "Ein Fehler ist aufgetreten",
+    "transfer_complete": "Übertragung abgeschlossen",
+    "set_interval": "Übertragungsintervall auswählen",
+    "confirm_clone": "Cloning bestätigen",
+    "invalid_limit": "Ungültige Grenze",
+    "admin_menu": "Admin-Menü",
+    "logout": "Abmeldung erfolgreich",
+    "no_backups": "Keine Backups konfiguriert"
+}
