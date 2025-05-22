@@ -1,14 +1,16 @@
 {
-    "welcome": "Wählen Sie Ihre Sprache",
-    "admin_login": "Administrator-Passwort eingeben",
-    "backup_limit": "Übertragungsgrenze einstellen (1-100)",
-    "cloning": "Cloning aktiviert",
-    "error": "Ein Fehler ist aufgetreten",
-    "transfer_complete": "Übertragung abgeschlossen",
-    "set_interval": "Übertragungsintervall auswählen",
-    "confirm_clone": "Cloning bestätigen",
-    "invalid_limit": "Ungültige Grenze",
-    "admin_menu": "Admin-Menü",
-    "logout": "Abmeldung erfolgreich",
-    "no_backups": "Keine Backups konfiguriert"
+  "start": "Willkommen! Bitte wählen Sie Ihre Sprache:",
+  "send_file": "Bitte laden Sie eine Datei zur Sicherung hoch.",
+  "file_received": "Ihre Datei wurde erfolgreich gespeichert. Danke!",
+  "button_send": "Backup-Datei senden",
+  "invalid_file": "Die Datei konnte nicht verarbeitet werden.",
+  "unsupported": "Nicht unterstützter Inhaltstyp.",
+  "language_selected": "Sprache wurde auf DEUTSCH gesetzt.",
+  "login_title": "Administrator-Login",
+  "login_error": "Ungültiger Benutzername oder Passwort.",
+  "dashboard_title": "Liste der Sicherungsdateien",
+  "table_id": "ID",
+  "table_user": "Benutzer-ID",
+  "table_file": "Dateiname",
+  "table_time": "Zeitstempel"
 }
