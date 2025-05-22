@@ -1,14 +1,16 @@
 {
-    "welcome": "Seleziona la tua lingua",
-    "admin_login": "Inserisci la password dell'amministratore",
-    "backup_limit": "Imposta il limite di trasferimento (1-100)",
-    "cloning": "Cloning abilitato",
-    "error": "Si è verificato un errore",
-    "transfer_complete": "Trasferimento completato",
-    "set_interval": "Scegli l'intervallo di trasferimento",
-    "confirm_clone": "Conferma il cloning",
-    "invalid_limit": "Limite non valido",
-    "admin_menu": "Pannello di amministrazione",
-    "logout": "Disconnessione effettuata",
-    "no_backups": "Nessun backup configurato"
+  "start": "Benvenuto! Seleziona la tua lingua:",
+  "send_file": "Carica un file da salvare.",
+  "file_received": "Il tuo file è stato salvato con successo. Grazie!",
+  "button_send": "Invia file di backup",
+  "invalid_file": "Il file non può essere elaborato.",
+  "unsupported": "Tipo di contenuto non supportato.",
+  "language_selected": "Lingua impostata su ITALIANO.",
+  "login_title": "Accesso amministratore",
+  "login_error": "Nome utente o password errati.",
+  "dashboard_title": "Elenco dei file di backup",
+  "table_id": "ID",
+  "table_user": "ID utente",
+  "table_file": "Nome del file",
+  "table_time": "Timestamp"
 }
