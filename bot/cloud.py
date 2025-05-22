@@ -1,6 +1,7 @@
 import os
 import boto3
 from pathlib import Path
+from bot.logger import logger
 
 USE_S3 = os.getenv("USE_S3", "false").lower() == "true"
 S3_BUCKET = os.getenv("S3_BUCKET")
@@ -20,10 +21,12 @@ else:
 
 def upload_to_s3(local_path: Path, remote_path: str) -> bool:
     if not USE_S3 or not s3:
+        logger.warning("S3 upload skipped (disabled)")
         return False
     try:
         s3.upload_file(str(local_path), S3_BUCKET, remote_path)
+        logger.info(f"Uploaded to S3: {remote_path}")
         return True
     except Exception as e:
-        print(f"[S3] Upload failed: {e}")
+        logger.error(f"S3 Upload failed: {e}")
         return False
