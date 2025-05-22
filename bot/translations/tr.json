@@ -1,14 +1,16 @@
 {
-    "welcome": "Dilinizi seçin",
-    "admin_login": "Yönetici şifresini girin",
-    "backup_limit": "Aktarım limitini ayarla (1-100)",
-    "cloning": "Klonlama etkinleştirildi",
-    "error": "Bir hata oluştu",
-    "transfer_complete": "Aktarım tamamlandı",
-    "set_interval": "Aktarım aralığını seçin",
-    "confirm_clone": "Klonlama onayla",
-    "invalid_limit": "Geçersiz limit",
-    "admin_menu": "Yönetici Paneli",
-    "logout": "Çıkış yapıldı",
-    "no_backups": "Yapılandırılmış yedek yok"
+  "start": "Hoş geldiniz! Lütfen dilinizi seçin:",
+  "send_file": "Lütfen yedeklemek için bir dosya yükleyin.",
+  "file_received": "Dosyanız başarıyla kaydedildi. Teşekkürler!",
+  "button_send": "Yedek Dosyayı Gönder",
+  "invalid_file": "Dosya işlenemedi.",
+  "unsupported": "Desteklenmeyen içerik türü.",
+  "language_selected": "Dil TÜRKÇE olarak ayarlandı.",
+  "login_title": "Yönetici Girişi",
+  "login_error": "Geçersiz kullanıcı adı veya şifre.",
+  "dashboard_title": "Yedekleme Dosya Listesi",
+  "table_id": "Kimlik",
+  "table_user": "Kullanıcı Kimliği",
+  "table_file": "Dosya Adı",
+  "table_time": "Zaman Damgası"
 }
