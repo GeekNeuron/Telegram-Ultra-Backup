@@ -1,14 +1,16 @@
 {
-    "welcome": "言語を選択してください",
-    "admin_login": "管理者パスワードを入力",
-    "backup_limit": "転送制限を設定 (1-100)",
-    "cloning": "クローンが有効に",
-    "error": "エラーが発生しました",
-    "transfer_complete": "転送完了",
-    "set_interval": "転送間隔を選択",
-    "confirm_clone": "クローンを確認",
-    "invalid_limit": "無効な制限",
-    "admin_menu": "管理ダッシュボード",
-    "logout": "ログアウト完了",
-    "no_backups": "設定されたバックアップなし"
+  "start": "ようこそ！言語を選択してください：",
+  "send_file": "バックアップするファイルをアップロードしてください。",
+  "file_received": "ファイルが正常に保存されました。ありがとうございます！",
+  "button_send": "バックアップファイルを送信",
+  "invalid_file": "ファイルを処理できませんでした。",
+  "unsupported": "サポートされていないコンテンツタイプ。",
+  "language_selected": "言語が日本語に設定されました。",
+  "login_title": "管理者ログイン",
+  "login_error": "無効なユーザー名またはパスワード。",
+  "dashboard_title": "バックアップファイル一覧",
+  "table_id": "ID",
+  "table_user": "ユーザーID",
+  "table_file": "ファイル名",
+  "table_time": "タイムスタンプ"
 }
