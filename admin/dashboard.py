@@ -1,6 +1,7 @@
 from flask import Blueprint, request, render_template, redirect, url_for
 import jwt, os
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy import func
 from bot.database import engine, BackupFile
 
 dashboard_bp = Blueprint("dashboard", __name__, template_folder="templates")
@@ -23,5 +24,14 @@ def token_required(func):
 def file_list():
     session = Session()
     files = session.query(BackupFile).all()
+
+    # آماری
+    total_files = session.query(func.count(BackupFile.id)).scalar()
+    unique_users = session.query(func.count(func.distinct(BackupFile.user_id))).scalar()
+    total_size = 0  # بعداً با اندازه فایل از disk حساب میشه
+
     session.close()
-    return render_template("dashboard.html", files=files)
+    return render_template("dashboard.html", files=files,
+                           total_files=total_files,
+                           unique_users=unique_users,
+                           total_size=total_size)
