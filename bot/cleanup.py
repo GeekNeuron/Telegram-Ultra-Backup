@@ -1,4 +1,3 @@
-# bot/cleanup.py
 import os
 import time
 from pathlib import Path
