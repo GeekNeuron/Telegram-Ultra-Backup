@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><title>File List</title></head>
+<head>
+  <meta charset="UTF-8"><title>Backup Dashboard</title>
+</head>
 <body>
-  <h2>Backup Files</h2>
+  <h2>Backup File List</h2>
+
+  <h3>Stats</h3>
+  <ul>
+    <li><strong>Total Files:</strong> {{ total_files }}</li>
+    <li><strong>Unique Users:</strong> {{ unique_users }}</li>
+    <li><strong>Total Size:</strong> {{ total_size }} bytes</li>
+  </ul>
+
   <table border="1">
     <tr><th>ID</th><th>User</th><th>File Name</th><th>Timestamp</th></tr>
     {% for f in files %}
