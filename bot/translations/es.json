@@ -1,14 +1,16 @@
 {
-    "welcome": "Seleccione su idioma",
-    "admin_login": "Introduzca la contraseña del administrador",
-    "backup_limit": "Establecer límite de transferencia (1-100)",
-    "cloning": "Clonado activado",
-    "error": "Se produjo un error",
-    "transfer_complete": "Transferencia completada",
-    "set_interval": "Elegir intervalo de transferencia",
-    "confirm_clone": "Confirmar clonado",
-    "invalid_limit": "Límite inválido",
-    "admin_menu": "Panel de administración",
-    "logout": "Cierre de sesión exitoso",
-    "no_backups": "No hay respaldos configurados"
+  "start": "¡Bienvenido! Por favor seleccione su idioma:",
+  "send_file": "Por favor, suba un archivo para hacer copia de seguridad.",
+  "file_received": "Su archivo ha sido guardado exitosamente. ¡Gracias!",
+  "button_send": "Enviar archivo de copia de seguridad",
+  "invalid_file": "El archivo no se pudo procesar.",
+  "unsupported": "Tipo de contenido no soportado.",
+  "language_selected": "Idioma configurado a ESPAÑOL.",
+  "login_title": "Inicio de sesión de administrador",
+  "login_error": "Usuario o contraseña inválidos.",
+  "dashboard_title": "Lista de archivos respaldados",
+  "table_id": "ID",
+  "table_user": "ID de usuario",
+  "table_file": "Nombre del archivo",
+  "table_time": "Marca de tiempo"
 }
