@@ -1,14 +1,16 @@
 {
-    "welcome": "Select your language",
-    "admin_login": "Enter admin password",
-    "backup_limit": "Set transfer limit (1-100)",
-    "cloning": "Cloning enabled",
-    "error": "Error occurred",
-    "transfer_complete": "Transfer completed",
-    "set_interval": "Choose transfer interval",
-    "confirm_clone": "Confirm cloning",
-    "invalid_limit": "Invalid limit specified",
-    "admin_menu": "Admin Dashboard",
-    "logout": "Logout successful",
-    "no_backups": "No backups configured"
+  "start": "Welcome! Please choose your language:",
+  "send_file": "Please upload a file to backup.",
+  "file_received": "Your file has been saved successfully. Thank you!",
+  "button_send": "Send Backup File",
+  "invalid_file": "The file could not be processed.",
+  "unsupported": "Unsupported content type.",
+  "language_selected": "Language has been set to ENGLISH.",
+  "login_title": "Admin Login",
+  "login_error": "Invalid username or password.",
+  "dashboard_title": "Backup File List",
+  "table_id": "ID",
+  "table_user": "User ID",
+  "table_file": "File Name",
+  "table_time": "Timestamp"
 }
