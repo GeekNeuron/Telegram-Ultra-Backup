@@ -1,14 +1,16 @@
 {
-    "welcome": "选择您的语言",
-    "admin_login": "输入管理员密码",
-    "backup_limit": "设置传输限制（1-100）",
-    "cloning": "克隆已启用",
-    "error": "发生错误",
-    "transfer_complete": "传输完成",
-    "set_interval": "选择间隔",
-    "confirm_clone": "确认克隆",
-    "invalid_limit": "无效限制",
-    "admin_menu": "管理员面板",
-    "logout": "成功登出",
-    "no_backups": "没有配置备份"
+  "start": "欢迎！请选择您的语言：",
+  "send_file": "请上传要备份的文件。",
+  "file_received": "您的文件已成功保存。谢谢！",
+  "button_send": "发送备份文件",
+  "invalid_file": "无法处理该文件。",
+  "unsupported": "不支持的内容类型。",
+  "language_selected": "语言已设置为中文。",
+  "login_title": "管理员登录",
+  "login_error": "用户名或密码无效。",
+  "dashboard_title": "备份文件列表",
+  "table_id": "编号",
+  "table_user": "用户ID",
+  "table_file": "文件名",
+  "table_time": "时间戳"
 }
