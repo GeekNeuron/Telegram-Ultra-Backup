@@ -1,60 +1,52 @@
-from pyrogram import Client, filters
-from bot.keyboards import *
-from bot.database import Database
-from bot.utils import load_translations
 import os
-import asyncio
+from aiogram import Bot, Dispatcher
+from aiogram.contrib.fsm_storage.memory import MemoryStorage
+from aiogram.utils.executor import start_polling, start_webhook
+from dotenv import load_dotenv
+from bot.handlers import register_handlers
+from bot.cleanup import cleanup_old_files
 
-API_ID = os.getenv("API_ID")
-API_HASH = os.getenv("API_HASH")
-BOT_TOKEN = os.getenv("BOT_TOKEN")
-ADMINS = [int(id) for id in os.getenv("ADMINS", "").split(",")]
+load_dotenv()
 
-app = Client("TelegramUltraBackup", 
-            api_id=API_ID,
-            api_hash=API_HASH,
-            bot_token=BOT_TOKEN)
+API_TOKEN = os.getenv("BOT_TOKEN")
+RUN_MODE = os.getenv("RUN_MODE", "polling").lower()
 
-db = Database()
+bot = Bot(token=API_TOKEN)
+dp = Dispatcher(bot, storage=MemoryStorage())
+register_handlers(dp)
 
-@app.on_message(filters.command("start"))
-async def start(client, message):
-    await message.reply(
-        load_translations("en")["welcome"],
-        reply_markup=language_selection_buttons()
-    )
+# Webhook config
+WEBHOOK_HOST = os.getenv("WEBHOOK_HOST")
+WEBHOOK_PATH = os.getenv("WEBHOOK_PATH", f"/webhook/{API_TOKEN}")
+WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
+WEBAPP_HOST = os.getenv("WEBAPP_HOST", "0.0.0.0")
+WEBAPP_PORT = int(os.getenv("WEBAPP_PORT", 8443))
+SSL_CERT = os.getenv("SSL_CERT")
+SSL_PRIVKEY = os.getenv("SSL_PRIVKEY")
 
-@app.on_callback_query(filters.regex("^lang_"))
-async def set_language(client, query):
-    lang_code = query.data.split("_")[1]
-    db.update_user_language(query.from_user.id, lang_code)
-    await query.answer("Language updated")
+if __name__ == '__main__':
+    cleanup_old_files()
+    if RUN_MODE == "polling":
+        print("Running bot in polling mode...")
+        start_polling(dp, skip_updates=True)
+    elif RUN_MODE == "webhook":
+        if not all([WEBHOOK_HOST, SSL_CERT, SSL_PRIVKEY]):
+            raise RuntimeError("Missing webhook configuration.")
+        from aiohttp import web
 
-@app.on_message(filters.command("admin"))
-async def admin_login(client, message):
-    if message.from_user.id in ADMINS:
-        await message.reply("Admin menu opened", reply_markup=admin_menu_buttons())
+        async def on_startup(dispatcher):
+            await bot.set_webhook(WEBHOOK_URL, certificate=open(SSL_CERT, 'rb'))
 
-async def run_backups():
-    while True:
-        try:
-            backups = db.get_all_backups()
-            for backup in backups:
-                if time.time() - backup.last_run >= backup.interval:
-                    await transfer_posts(backup)
-            await asyncio.sleep(60)
-        except Exception as e:
-            await notify_admins(f"Backup error: {str(e)}")
+        async def on_shutdown(dispatcher):
+            await bot.delete_webhook()
 
-def validate_interval(value):
-    if not (900 <= value <= 86400):
-        raise ValueError("Interval must be between 15 minutes and 24 hours")
-
-async def transfer_posts(backup):
-    async for msg in app.get_chat_history(backup.source):
-        await app.copy_message(backup.target, msg.chat.id, msg.id)
-    db.update_last_run(backup.id)
-
-if __name__ == "__main__":
-    asyncio.run(run_backups())
-    app.run()
+        start_webhook(
+            dispatcher=dp,
+            webhook_path=WEBHOOK_PATH,
+            on_startup=on_startup,
+            on_shutdown=on_shutdown,
+            host=WEBAPP_HOST,
+            port=WEBAPP_PORT,
+            ssl_cert=SSL_CERT,
+            ssl_private_key=SSL_PRIVKEY
+        )
