@@ -1,14 +1,16 @@
 {
-    "welcome": "Sélectionnez votre langue",
-    "admin_login": "Entrez le mot de passe administrateur",
-    "backup_limit": "Définir la limite de transfert (1-100)",
-    "cloning": "Clonage activé",
-    "error": "Une erreur s'est produite",
-    "transfer_complete": "Transfert terminé",
-    "set_interval": "Choisir l'intervalle de transfert",
-    "confirm_clone": "Confirmer le clonage",
-    "invalid_limit": "Limite invalide",
-    "admin_menu": "Tableau de bord d'administration",
-    "logout": "Déconnexion réussie",
-    "no_backups": "Aucun backup configuré"
+  "start": "Bienvenue ! Veuillez choisir votre langue :",
+  "send_file": "Veuillez envoyer un fichier à sauvegarder.",
+  "file_received": "Votre fichier a été enregistré avec succès. Merci !",
+  "button_send": "Envoyer le fichier de sauvegarde",
+  "invalid_file": "Le fichier n'a pas pu être traité.",
+  "unsupported": "Type de contenu non pris en charge.",
+  "language_selected": "Langue définie sur FRANÇAIS.",
+  "login_title": "Connexion administrateur",
+  "login_error": "Nom d'utilisateur ou mot de passe invalide.",
+  "dashboard_title": "Liste des fichiers de sauvegarde",
+  "table_id": "ID",
+  "table_user": "ID utilisateur",
+  "table_file": "Nom du fichier",
+  "table_time": "Horodatage"
 }
