@@ -1,69 +1,132 @@
-# Telegram-Ultra-Backup
+# Telegram Ultra Backup
+
+A professional, secure, and multilingual Telegram bot that receives and stores backup files from users.  
+Ideal for admins or services needing structured Telegram file submissions.
+
+---
 
 ## Features
-- **14 Language Support:** English, Russian, Chinese, Hindi, Spanish, Arabic, Turkish, Italian, Portuguese, German, French, Korean, Japanese, Persian
-- **Admin Authentication with 2FA:** Secure access to admin functionalities
-- **Automatic Channel Backup:** Transfer posts from public channels to personal channels
-- **Cloning Control System:** Register and manage clones with admin approval
-- **Web Admin Dashboard:** Monitor and manage backups via a web interface
-- **Full Error Logging:** Detailed logs for troubleshooting
+
+- **Async Telegram Bot** using Aiogram
+- **Local & Cloud Storage** (local filesystem or Amazon S3)
+- **Multilingual Support** (14 languages)
+- **Admin Dashboard** with Flask + JWT login
+- **Webhook & Polling Modes**
+- **Auto File Cleanup** (configurable)
+- **Unit Testing** with `pytest`
+- **Docker Support**
+- **Modular & Extensible Codebase**
+
+---
+
+## Supported Languages
+
+English, فارسی, Español, Français, Italiano, Deutsch, Русский, Português,  
+हिन्दी, 日本語, 中文, 한국어, العربية, Türkçe
+
+---
 
 ## Installation
-1. **Clone Repository:**
-   ```bash
-   git clone https://github.com/GeekNeuron/Telegram-Ultra-Backup.git
-   cd Telegram-Ultra-Backup
-   ```
 
-2. **Configure Environment Variables:**
-   ```bash
-   cp .env.example .env
-   ```
-   Edit `.env` with your credentials:
-   ```env
-   API_ID=YOUR_TELEGRAM_API_ID
-   API_HASH=YOUR_TELEGRAM_API_HASH
-   BOT_TOKEN=YOUR_TELEGRAM_BOT_TOKEN
-   ADMINS=YOUR_TELEGRAM_USER_ID
-   CLONE_CONFIRMATION_CODE=YOUR_SECRET_CODE
-   ```
+### 1. Install Dependencies
 
-3. **Build Docker Image:**
-   ```bash
-   docker build -t telegram-backup .
-   ```
+```bash
+pip install poetry
+poetry install
+```
+### 2. Configure Environment
 
-4. **Run the Stack:**
-   ```bash
-   docker run -d \
-     -e API_ID=${API_ID} \
-     -e API_HASH=${API_HASH} \
-     -e BOT_TOKEN=${BOT_TOKEN} \
-     -e ADMINS=${ADMINS} \
-     -e CLONE_CONFIRMATION_CODE=${CLONE_CONFIRMATION_CODE} \
-     -p 8000:8000 \
-     telegram-backup
-   ```
+```bash
+cp .env.example .env
+```
+Then edit `.env` with your actual config.
 
-5. **Access Admin Panel:**
-   ```bash
-   http://localhost:8000/backups
-   ```
 
-## Verification
-1. **Start the Bot:**
-   - Send `/start` to your bot.
-   - Select your preferred language.
-   - Add a backup by following the prompts.
+---
 
-2. **Check Admin Dashboard:**
-   - Navigate to `http://localhost:8000/backups` to see active backups.
-   - Ensure that backups are being transferred according to the set intervals.
+## Running the Bot
 
-3. **Test Cloning:**
-   - Clone the bot using @BotFather.
-   - Use the `/clone` command in the original bot with the clone ID and user ID.
-   - Verify that the clone is registered in the admin panel.
+### Polling Mode
+```bash
+python bot/main.py
+```
+### Webhook Mode
+```env
+RUN_MODE=webhook
+WEBHOOK_HOST=https://yourdomain.com
+SSL_CERT=cert.pem
+SSL_PRIVKEY=key.pem
+```
+
+---
+
+## Admin Panel
+
+**Accessible at**:
+http://localhost:5000/admin/login
+
+### Default login
+**Username**: admin
+**Password**: admin123
+
+
+---
+
+## Auto-Cleanup
+
+Automatically deletes old files after N hours:
+```bash
+AUTO_CLEANUP=true
+MAX_FILE_AGE_HOURS=72
+```
+**Disable by setting** AUTO_CLEANUP=false.
+
+
+---
+
+## Amazon S3 Integration
+
+Enable cloud backup via .env:
+```env
+USE_S3=true
+S3_BUCKET=your-bucket
+S3_REGION=your-region
+S3_ACCESS_KEY=your-access-key
+S3_SECRET_KEY=your-secret-key
+```
+
+---
+
+## Running Tests
+```bash
+pytest
+```
+
+---
+
+## Docker Build
+```bash
+docker build -t telegram-ultra-backup .
+docker run -p 8000:8000 telegram-ultra-backup
+```
+
+---
+
+## Project Structure
+```
+Telegram-Ultra-Backup/
+├── bot/
+├── admin/
+├── translations/
+├── tests/
+├── .env.example
+├── Dockerfile
+├── pyproject.toml
+└── README.md
+```
+
+---
 
 ## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+MIT License
