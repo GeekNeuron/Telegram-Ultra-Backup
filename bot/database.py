@@ -1,41 +1,21 @@
-import sqlite3
+from sqlalchemy import Column, Integer, String, DateTime, create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+from datetime import datetime
+import os
 
-class Database:
-    def __init__(self):
-        self.conn = sqlite3.connect('backup.db')
-        self.create_tables()
+Base = declarative_base()
 
-    def create_tables(self):
-        self.conn.execute('''
-            CREATE TABLE IF NOT EXISTS users (
-                user_id INTEGER PRIMARY KEY,
-                language TEXT DEFAULT 'en',
-                is_admin BOOLEAN DEFAULT 0
-            )
-        ''')
-        self.conn.execute('''
-            CREATE TABLE IF NOT EXISTS backups (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                user_id INTEGER,
-                source TEXT NOT NULL,
-                target TEXT NOT NULL,
-                last_run TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                interval INTEGER DEFAULT 900
-            )
-        ''')
-        self.conn.execute('''
-            CREATE TABLE IF NOT EXISTS clones (
-                clone_id TEXT PRIMARY KEY,
-                user_id INTEGER NOT NULL,
-                registration_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            )
-        ''')
+class BackupFile(Base):
+    __tablename__ = "backup_files"
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, nullable=False)
+    file_name = Column(String, nullable=False)
+    file_id = Column(String, nullable=False)
+    timestamp = Column(DateTime, default=datetime.utcnow)
 
-    def get_all_backups(self):
-        return self.conn.execute("SELECT * FROM backups").fetchall()
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./backup.db")
+engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
+SessionLocal = sessionmaker(bind=engine)
 
-    def register_clone(self, clone_id, user_id):
-        self.conn.execute(
-            "INSERT INTO clones (clone_id, user_id) VALUES (?, ?)",
-            (clone_id, user_id)
-        )
+Base.metadata.create_all(bind=engine)
