@@ -1,57 +1,24 @@
-# Byte-compiled / optimized / DLL files
+# Python
 __pycache__/
-*.py[cod]
-*$py.class
-
-# Virtual environment
-venv/
-env/
-.venv/
-.virtualenv/
-env.bak/
-venv.bak/
-
-# PyCharm
-.idea/
-*.iml
-*.ipr
-*.iws
-
-# VSCode
-.vscode/
-*.code-workspace
-
-# Logs
-*.log
-error.log
-
-# Environment variables
-.env
-
-# Docker
-*.dockerenv
-Dockerfile.*
-
-# Build directories
-build/
-dist/
-*.egg-info/
-
-# Jupyter Notebook
-.ipynb_checkpoints/
-
-# Temporary files
-*.tmp
-*.swp
-*.swo
-
-# Media files
-tutorial.mp4
-
-# Compiled files
+*.pyc
 *.pyo
 *.pyd
+.env
+.env.*
+venv/
+*.sqlite3
+*.db
 
-# Other
-*.DS_Store
+# Editor
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
 Thumbs.db
+
+# Log / Temp
+*.log
+*.bak
+downloads/
