@@ -7,7 +7,6 @@ from bot.handlers import register_handlers
 from bot.cleanup import cleanup_old_files
 
 load_dotenv()
-
 API_TOKEN = os.getenv("BOT_TOKEN")
 RUN_MODE = os.getenv("RUN_MODE", "polling").lower()
 
@@ -15,7 +14,7 @@ bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot, storage=MemoryStorage())
 register_handlers(dp)
 
-# Webhook config
+# Webhook setup
 WEBHOOK_HOST = os.getenv("WEBHOOK_HOST")
 WEBHOOK_PATH = os.getenv("WEBHOOK_PATH", f"/webhook/{API_TOKEN}")
 WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
@@ -27,19 +26,13 @@ SSL_PRIVKEY = os.getenv("SSL_PRIVKEY")
 if __name__ == '__main__':
     cleanup_old_files()
     if RUN_MODE == "polling":
-        print("Running bot in polling mode...")
         start_polling(dp, skip_updates=True)
     elif RUN_MODE == "webhook":
         if not all([WEBHOOK_HOST, SSL_CERT, SSL_PRIVKEY]):
             raise RuntimeError("Missing webhook configuration.")
         from aiohttp import web
-
-        async def on_startup(dispatcher):
-            await bot.set_webhook(WEBHOOK_URL, certificate=open(SSL_CERT, 'rb'))
-
-        async def on_shutdown(dispatcher):
-            await bot.delete_webhook()
-
+        async def on_startup(dispatcher): await bot.set_webhook(WEBHOOK_URL, certificate=open(SSL_CERT, 'rb'))
+        async def on_shutdown(dispatcher): await bot.delete_webhook()
         start_webhook(
             dispatcher=dp,
             webhook_path=WEBHOOK_PATH,
