@@ -1,18 +1,22 @@
 import logging
 from logging.handlers import RotatingFileHandler
+from pathlib import Path
 import os
 
+# Create logs directory
 log_dir = Path("logs")
 log_dir.mkdir(exist_ok=True)
 
 LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
-log_file = log_dir / "telegram.log"
+LOG_FILE = log_dir / "telegram.log"
 
-handler = RotatingFileHandler(log_file, maxBytes=2_000_000, backupCount=5)
-formatter = logging.Formatter("[%(asctime)s] %(levelname)s in %(module)s: %(message)s")
+# Setup handler
+handler = RotatingFileHandler(LOG_FILE, maxBytes=2_000_000, backupCount=3)
+formatter = logging.Formatter("[%(asctime)s] %(levelname)s - %(message)s")
 handler.setFormatter(formatter)
 
-logger = logging.getLogger("telegram_backup")
+# Configure global logger
+logger = logging.getLogger("telegram-ultra")
 logger.setLevel(LOG_LEVEL)
 logger.addHandler(handler)
 logger.propagate = False
